@@ -1,0 +1,42 @@
+141. Linked List Cycle
+  code for this question in c++
+  class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+
+        ListNode *slow = head;
+        ListNode *fast = head;
+
+        while(fast != NULL && fast->next != NULL){
+
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+
+        return false;
+    }
+};
+
+9. Palindrome Number
+  code for this question in c++
+  class Solution {
+public:
+    bool isPalindrome(int x) {
+
+        if(x<0) return false;
+
+        int original =x;
+        int rev =0;
+
+        while(x>0){
+            rev = rev*10+x%10;
+            x/=10;
+        }
+
+        return original == rev;
+    }
+};
