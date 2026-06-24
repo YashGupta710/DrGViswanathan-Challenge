@@ -1,0 +1,39 @@
+206. Reverse Linked List
+  code for this question in C++
+
+  class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode*prev= NULL;
+        ListNode*curr = head;
+
+        while(curr) {
+            ListNode*nextNode = curr->next;
+            curr->next=prev;
+            prev = curr;
+            curr = nextNode;
+
+        }
+        return prev;
+    }
+
+};
+
+
+268. Missing Number
+    code for this question in C++
+  
+  class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int expected = n*(n+1)/2;
+        int actual = 0;
+        for(int num : nums){
+            actual += num;
+
+        
+        }
+        return expected - actual;     
+    }
+};
