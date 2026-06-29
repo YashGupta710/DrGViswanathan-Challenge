@@ -1,0 +1,50 @@
+400. Nth Digit
+
+class Solution {
+public:
+    int findNthDigit(int n) {
+
+        long  digits = 1;
+        long  count = 9;
+        long  start = 1;
+
+        while(n > digits * count){
+            n -= digits * count;
+            digits++;
+            count *= 10;
+            start *= 10;
+        }
+
+        start += (n - 1) / digits;
+
+        string num = to_string(start);
+
+        return num[(n - 1) % digits] - '0';
+    }
+};
+
+1721. Swapping Nodes in a Linked List
+class Solution {
+public:
+    ListNode* swapNodes(ListNode* head, int k) {
+
+        ListNode* one = head;
+        ListNode* two = head;
+        ListNode* temp = head;
+
+        for(int i = 1; i < k; i++){
+            one = one->next;
+        }
+
+        temp = one;
+
+        while(temp->next){
+            temp = temp->next;
+            two = two->next;
+        }
+
+        swap(one->val, two->val);
+
+        return head;
+    }
+};
