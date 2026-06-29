@@ -1,0 +1,43 @@
+19. Remove Nth Node From End of List
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+
+        ListNode* sample = new ListNode(0);
+        sample->next = head;
+
+        ListNode* rapid = sample;
+        ListNode* delay = sample;
+
+        for(int i = 0; i <= n; i++){
+            rapid = rapid->next;
+        }
+
+        while(rapid){
+
+            rapid = rapid->next;
+            delay  = delay ->next;
+        }
+
+        delay ->next = delay ->next->next;
+
+        return sample->next;
+    }
+};
+
+172. Factorial Trailing Zeroes
+
+class Solution {
+public:
+    int trailingZeroes(int n) {
+
+        int count=0;
+
+        while(n>0){
+            n=n/5;
+            count+=n;
+        }
+
+        return count;
+    }
+};
