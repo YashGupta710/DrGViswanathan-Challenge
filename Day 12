@@ -1,0 +1,52 @@
+1523. Count Odd Numbers in an Interval Range
+  class Solution {
+public:
+    int countOdds(int low, int high) {
+
+        int sum=high-low+1;
+
+        if(sum % 2 == 0){
+            return sum / 2;
+        }
+
+        if(low % 2 == 1 || high % 2 == 1){
+            return sum / 2 + 1;
+        }
+
+        return sum/2;
+    }
+};
+
+2807. Insert Greatest Common Divisors in Linked List
+
+  class Solution {
+public:
+    
+    int gcd(int a, int b){
+        while(b){
+            int t=b;
+            b=a%b;
+            a=t;
+        }
+        return a;
+    }
+
+    ListNode* insertGreatestCommonDivisors(ListNode* head) {
+
+        ListNode*curr=head;
+
+        while(curr&&curr->next){
+
+            int g = gcd(curr->val, curr->next->val);
+
+            ListNode* node = new ListNode(g);
+
+            node->next = curr->next;
+            curr->next = node;
+
+            curr = node->next;
+        }
+
+        return head;
+    }
+};
